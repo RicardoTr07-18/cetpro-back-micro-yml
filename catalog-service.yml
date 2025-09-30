@@ -10,6 +10,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+    open-in-view: false  # Deshabilitar open-in-view
 
 eureka:
   client:
