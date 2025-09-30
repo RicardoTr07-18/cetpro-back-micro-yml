@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: catalog-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Cetpro
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    lease-renewal-interval-seconds: 5
+    lease-expiration-duration-seconds: 10
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Servicio de catalog-service
+    description: Este servicio contiene los rest y operaciones central del funcionamiento del sistema

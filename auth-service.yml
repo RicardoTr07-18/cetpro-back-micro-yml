@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Auth
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    lease-renewal-interval-seconds: 5
+    lease-expiration-duration-seconds: 10
+
+jwt:
+  secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
+  expiration-ms: 28800000
+
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Servicio de auth-service
+    description: Este servicio contiene los roles y permisos, jwt, spring security, encriptacion 
