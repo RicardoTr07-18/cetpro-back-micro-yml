@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: api-gateway
+
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      server:
+        webflux:
+          routes:
+            # --- Auth Service ---
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/auth/**
+
+            # --- User Service ---
+            - id: user-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/user/**
+
+            # --- Catalog Service ---
+            - id: catalog-service
+              uri: lb://catalog-service
+              predicates:
+                - Path=
+                    /api/informationcetpro/**,
+                    /api/matricula/**,
+                    /api/report/grades/**,
+                    /api/report/matricula/**,
+                    /api/modules/**,
+                    /api/report/modules/**,
+                    /api/periods/**,
+                    /api/seccion/**,
+                    /api/specialty/**,
+                    /api/student/**,
+                    /api/teacher/**,
+                    /api/report/teacher/**,
+                    /api/turno/**
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: Servicio de API Gateway
+    description: Servicio central que su funcion es conectar con otros microservicios y juntarlo todo en un puerto central (api-gateway)
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    registry-fetch-interval-seconds: 5
+    initial-instance-info-replication-interval-seconds: 5
+
+jwt:
+  secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
+  expiration-ms: 28800000
+
+logging:
+  level:
+    reactor.netty: INFO
