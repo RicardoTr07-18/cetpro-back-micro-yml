@@ -6,21 +6,28 @@ spring:
     url: jdbc:postgresql://localhost:5432/Auth
     username: postgres
     password: 1234
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1800000
 
   jpa:
     hibernate:
       ddl-auto: none
-    open-in-view: false  # Deshabilitar open-in-view
+    open-in-view: false
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 30
+    initial-instance-info-replication-interval-seconds: 30
   instance:
     prefer-ip-address: true
     hostname: localhost
-    lease-renewal-interval-seconds: 5
-    lease-expiration-duration-seconds: 10
+    lease-renewal-interval-seconds: 15
+    lease-expiration-duration-seconds: 40
 
 jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
@@ -34,11 +41,14 @@ management:
     web:
       exposure:
         include: info, health
-  info:
-    env:
-      enabled: true
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate: WARN
+    reactor.netty: INFO
 
 info:
   app:
     name: Servicio de auth-service
-    description: Este servicio contiene los roles y permisos, jwt, spring security, encriptacion 
+    description: Contiene roles, permisos, JWT, Spring Security y encriptación
