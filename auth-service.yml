@@ -44,9 +44,14 @@ management:
 
 logging:
   level:
-    org.springframework: INFO
-    org.hibernate: WARN
-    reactor.netty: INFO
+    root: WARN
+    org.springframework: WARN
+    org.hibernate.SQL: OFF
+    org.hibernate.type.descriptor.sql.BasicBinder: OFF
+    com.netflix.discovery: WARN
+    reactor.netty: WARN
+    com.rest.api: INFO
+
 
 info:
   app:
