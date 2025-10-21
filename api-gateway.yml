@@ -3,7 +3,7 @@ spring:
     name: api-gateway
 
   main:
-    lazy-initialization: true        # ⚡ Carga de beans diferida
+    lazy-initialization: true        # ⚡ Carga diferida de beans para iniciar más rápido
     banner-mode: off
 
   autoconfigure:
@@ -11,6 +11,14 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
   cloud:
+    # 🔧 Configuración del servidor de configuración
+    config:
+      request-read-timeout: 2000
+      retry:
+        max-attempts: 2
+        initial-interval: 1000
+
+    # 🚪 Configuración del API Gateway
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
@@ -20,11 +28,13 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+
         # --- User Service ---
         - id: user-service
           uri: lb://auth-service
           predicates:
             - Path=/api/user/**
+
         # --- Catalog Service ---
         - id: catalog-service
           uri: lb://catalog-service
@@ -42,13 +52,6 @@ spring:
                    /api/teacher/**,
                    /api/report/teacher/**,
                    /api/turno/**
-
-  cloud:
-    config:
-      request-read-timeout: 2000
-      retry:
-        max-attempts: 2
-        initial-interval: 1000
 
 eureka:
   client:
