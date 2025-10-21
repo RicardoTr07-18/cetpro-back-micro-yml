@@ -3,7 +3,7 @@ spring:
     name: api-gateway
 
   main:
-    lazy-initialization: true        # ⚡ Carga diferida de beans para iniciar más rápido
+    lazy-initialization: true        # ⚡ Carga diferida de beans para arrancar más rápido
     banner-mode: off
 
   autoconfigure:
@@ -11,47 +11,47 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
   cloud:
-    # 🔧 Configuración del servidor de configuración
     config:
       request-read-timeout: 2000
       retry:
         max-attempts: 2
         initial-interval: 1000
 
-    # 🚪 Configuración del API Gateway
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
-      routes:
-        # --- Auth Service ---
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/auth/**
+      server:
+        webflux:
+          routes:
+            # --- Auth Service ---
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/auth/**
 
-        # --- User Service ---
-        - id: user-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/api/user/**
+            # --- User Service ---
+            - id: user-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/api/user/**
 
-        # --- Catalog Service ---
-        - id: catalog-service
-          uri: lb://catalog-service
-          predicates:
-            - Path=/api/informationcetpro/**,
-                   /api/matricula/**,
-                   /api/report/grades/**,
-                   /api/report/matricula/**,
-                   /api/modules/**,
-                   /api/report/modules/**,
-                   /api/periods/**,
-                   /api/seccion/**,
-                   /api/specialty/**,
-                   /api/student/**,
-                   /api/teacher/**,
-                   /api/report/teacher/**,
-                   /api/turno/**
+            # --- Catalog Service ---
+            - id: catalog-service
+              uri: lb://catalog-service
+              predicates:
+                - Path=/api/informationcetpro/**,
+                       /api/matricula/**,
+                       /api/report/grades/**,
+                       /api/report/matricula/**,
+                       /api/modules/**,
+                       /api/report/modules/**,
+                       /api/periods/**,
+                       /api/seccion/**,
+                       /api/specialty/**,
+                       /api/student/**,
+                       /api/teacher/**,
+                       /api/report/teacher/**,
+                       /api/turno/**
 
 eureka:
   client:
