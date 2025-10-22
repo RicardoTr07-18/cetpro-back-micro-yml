@@ -57,7 +57,8 @@ management:
       exposure:
         include: info, health, prometheus
   info:
-    env: enabled: true
+    env:
+      enabled: true
 
 logging:
   level:
