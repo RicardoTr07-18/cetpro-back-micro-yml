@@ -2,20 +2,32 @@ spring:
   application:
     name: catalog-service
 
+  main:
+    lazy-initialization: true        # ⚡ Carga los beans solo cuando se usan
+    banner-mode: off                 # Evita carga del banner ASCII
+
   datasource:
     url: jdbc:postgresql://localhost:5432/Cetpro
     username: postgres
     password: 1234
     hikari:
-      maximum-pool-size: 20
-      minimum-idle: 5
+      maximum-pool-size: 15          # ⚙️ Pool ajustado
+      minimum-idle: 3
       idle-timeout: 300000
       max-lifetime: 1800000
+      initializationFailTimeout: 0   # ⚡ No espera si la BD tarda
 
   jpa:
     hibernate:
       ddl-auto: none
     open-in-view: false
+
+  cloud:
+    config:
+      request-read-timeout: 2000     # ⚡ Timeout corto para Config Server
+      retry:
+        max-attempts: 2
+        initial-interval: 1000
 
 eureka:
   client:
@@ -38,7 +50,10 @@ management:
       exposure:
         include: info, health
 
-
+logging:
+  level:
+    root: warn                       # ⚡ Menos carga en consola
+    org.springframework: info
 
 info:
   app:

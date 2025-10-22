@@ -2,6 +2,10 @@ spring:
   application:
     name: api-gateway
 
+  main:
+    lazy-initialization: true        # ⚡ Carga de beans diferida
+    banner-mode: off
+
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
@@ -10,44 +14,46 @@ spring:
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
-      server:
-        webflux:
-          routes:
-            # --- Auth Service ---
-            - id: auth-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/auth/**
+      routes:
+        # --- Auth Service ---
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+        # --- User Service ---
+        - id: user-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/user/**
+        # --- Catalog Service ---
+        - id: catalog-service
+          uri: lb://catalog-service
+          predicates:
+            - Path=/api/informationcetpro/**,
+                   /api/matricula/**,
+                   /api/report/grades/**,
+                   /api/report/matricula/**,
+                   /api/modules/**,
+                   /api/report/modules/**,
+                   /api/periods/**,
+                   /api/seccion/**,
+                   /api/specialty/**,
+                   /api/student/**,
+                   /api/teacher/**,
+                   /api/report/teacher/**,
+                   /api/turno/**
 
-            # --- User Service ---
-            - id: user-service
-              uri: lb://auth-service
-              predicates:
-                - Path=/api/user/**
-
-            # --- Catalog Service ---
-            - id: catalog-service
-              uri: lb://catalog-service
-              predicates:
-                - Path=
-                    /api/informationcetpro/**,
-                    /api/matricula/**,
-                    /api/report/grades/**,
-                    /api/report/matricula/**,
-                    /api/modules/**,
-                    /api/report/modules/**,
-                    /api/periods/**,
-                    /api/seccion/**,
-                    /api/specialty/**,
-                    /api/student/**,
-                    /api/teacher/**,
-                    /api/report/teacher/**,
-                    /api/turno/**
+  cloud:
+    config:
+      request-read-timeout: 2000
+      retry:
+        max-attempts: 2
+        initial-interval: 1000
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka/
     registry-fetch-interval-seconds: 30
     initial-instance-info-replication-interval-seconds: 30
 
@@ -64,9 +70,10 @@ jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
   expiration-ms: 28800000
 
-
-
-
+logging:
+  level:
+    root: warn
+    org.springframework: info
 
 info:
   app:
