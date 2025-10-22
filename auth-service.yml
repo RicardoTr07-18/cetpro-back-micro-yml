@@ -57,8 +57,7 @@ management:
       exposure:
         include: info, health, prometheus
   info:
-    env:
-      enabled: true
+    env: enabled: true
 
 logging:
   level:
@@ -67,5 +66,8 @@ logging:
 
 info:
   app:
-    name: Servicio de auth-service
-    description: Contiene roles, permisos, JWT, Spring Security y encriptación
+    name: Servicio de Autenticación (auth-service)
+    description: Gestiona roles, permisos, JWT, autenticación y seguridad del sistema.
+    version: 1.0.0
+    author: Ricardo Terrazas
+    environment: desarrollo

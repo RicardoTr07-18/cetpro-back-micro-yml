@@ -53,8 +53,7 @@ management:
       exposure:
         include: info, health, prometheus
   info:
-    env:
-      enabled: true
+    env: enabled: true
 
 logging:
   level:
@@ -63,5 +62,8 @@ logging:
 
 info:
   app:
-    name: Servicio de catalog-service
-    description: Este servicio contiene los REST y operaciones centrales del sistema
+    name: Servicio de Catálogo (catalog-service)
+    description: Expone los endpoints REST principales del sistema (alumnos, docentes, matrículas, módulos, etc.).
+    version: 1.0.0
+    author: Ricardo Terrazas
+    environment: desarrollo

@@ -72,8 +72,7 @@ management:
       exposure:
         include: info, health, prometheus
   info:
-    env: 
-      enabled: true
+    env: enabled: true
 
 jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
@@ -86,5 +85,8 @@ logging:
 
 info:
   app:
-    name: Servicio de API Gateway
-    description: Servicio central que conecta con otros microservicios
+    name: Servicio API Gateway
+    description: Puerta de enlace que enruta las solicitudes a los microservicios internos y maneja la seguridad.
+    version: 1.0.0
+    author: Ricardo Terrazas
+    environment: desarrollo
