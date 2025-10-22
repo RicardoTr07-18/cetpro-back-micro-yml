@@ -42,15 +42,7 @@ management:
       exposure:
         include: info, health
 
-logging:
-  level:
-    root: WARN
-    org.springframework: WARN
-    org.hibernate.SQL: OFF
-    org.hibernate.type.descriptor.sql.BasicBinder: OFF
-    com.netflix.discovery: WARN
-    reactor.netty: WARN
-    com.rest.api: INFO
+
 
 
 info:

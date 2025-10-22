@@ -64,15 +64,7 @@ jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
   expiration-ms: 28800000
 
-logging:
-  level:
-    root: WARN
-    org.springframework: WARN
-    org.hibernate.SQL: OFF
-    org.hibernate.type.descriptor.sql.BasicBinder: OFF
-    com.netflix.discovery: WARN
-    reactor.netty: WARN
-    com.rest.api: INFO
+
 
 
 
