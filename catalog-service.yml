@@ -45,10 +45,13 @@ server:
   port: 8082
 
 management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
   endpoints:
     web:
       exposure:
-        include: info, health
+        include: info, health, prometheus
 
 logging:
   level:
