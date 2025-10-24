@@ -17,6 +17,11 @@ Este proyecto utiliza **Spring Cloud Config Server** para gestionar de forma cen
 Los archivos `.yml` corresponden a cada microservicio y sus distintos perfiles de entorno:
 
 cetpro-back-micro-yml/
+
+│── eureka-server.yml
+
 │── catalog-service.yml
+
 │── auth-service.yml
-│── ...
+
+│── api-gateway.yml
