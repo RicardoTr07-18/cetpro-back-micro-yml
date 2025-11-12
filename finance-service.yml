@@ -65,8 +65,8 @@ logging:
 
 info:
   app:
-    name: Servicio de Catálogo (catalog-service)
-    description: Expone los endpoints REST principales del sistema (alumnos, docentes, matrículas, módulos, etc.).
+    name: Servicio de Finanzas (finance-service)
+    description: Servicio encargado de la gestión financiera, donde se manejan transacciones y reportes, ademas se conecta con el servicio de catalogo para obtener informacion de productos.
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
