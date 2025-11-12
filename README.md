@@ -19,9 +19,7 @@ Los archivos `.yml` corresponden a cada microservicio y sus distintos perfiles d
 cetpro-back-micro-yml/
 
 │── eureka-server.yml
-
 │── catalog-service.yml
-
 │── auth-service.yml
-
+│── finance-service.yml
 │── api-gateway.yml
