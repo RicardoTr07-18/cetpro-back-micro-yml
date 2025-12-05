@@ -38,6 +38,8 @@ resilience4j:
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
+        ignoreExceptions:
+          - feign.FeignException$NotFound
 
 eureka:
   client:
