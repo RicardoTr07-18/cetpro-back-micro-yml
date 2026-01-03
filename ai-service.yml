@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: ai-service
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: llama3
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 6s
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2s
+
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 30
+    initial-instance-info-replication-interval-seconds: 30
+
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    lease-renewal-interval-seconds: 15
+    lease-expiration-duration-seconds: 40
