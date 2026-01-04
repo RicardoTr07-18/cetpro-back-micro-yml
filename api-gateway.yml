@@ -52,12 +52,18 @@ spring:
                        /api/teacher/**,
                        /api/report/teacher/**,
                        /api/turno/**
+            
             # --- Finance Service ---
             - id: finance-service
               uri: lb://finance-service
               predicates:
                 - Path=/api/finance/**
 
+            # --- AI Service ---
+            - id: ai-service
+              uri: lb://ai-service
+              predicates:
+                - Path=/api/ai/**
 eureka:
   client:
     service-url:
