@@ -40,6 +40,10 @@ eureka:
     hostname: localhost
     lease-renewal-interval-seconds: 15
     lease-expiration-duration-seconds: 40
+    metadata-map:
+      app-name: ${info.app.name}
+      version: ${info.app.version}
+      environment: ${info.app.environment}
 
 jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c

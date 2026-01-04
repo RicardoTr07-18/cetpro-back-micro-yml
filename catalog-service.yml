@@ -40,6 +40,10 @@ eureka:
     hostname: localhost
     lease-renewal-interval-seconds: 15
     lease-expiration-duration-seconds: 40
+    metadata-map:
+      app-name: ${info.app.name}
+      version: ${info.app.version}
+      environment: ${info.app.environment}
 
 server:
   port: 8082
