@@ -58,7 +58,7 @@ logging:
 
 info:
   app:
-    name: ai-service
+    name: Servicio de Inteligencia Artificial (ai-service)
     description: "Servicio basado en inteligencia artificial para la automatización de tareas y procesamiento de datos."
     version: 1.0.0
     author: Ricardo Terrazas
@@ -66,12 +66,6 @@ info:
     license: MIT
     contact:
       email: ricardo@gmail.com
-    tags:
-      - inteligencia artificial
-      - automatización
-      - procesamiento de datos
-    dependencies:
-      - tensorflow
-      - pandas
-      - numpy
-      - flask
+    tags: inteligencia artificial, IA generativa, automatización, procesamiento de datos
+    dependencies: Spring Boot, Spring WebFlux, Spring AI (Ollama), Redis, Eureka, Prometheus
+
