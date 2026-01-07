@@ -97,8 +97,16 @@ logging:
 
 info:
   app:
-    name: Servicio API Gateway
-    description: Puerta de enlace que enruta las solicitudes a los microservicios internos y maneja la seguridad.
+    name: api-gateway
+    title: Servicio API Gateway
+    description: >
+      Puerta de enlace que enruta las solicitudes a los microservicios internos,
+      aplica seguridad (JWT), rate limiting y observabilidad.
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
+    license: Proprietary
+    contact:
+      email: ricardo.terrazasramos@gmail.com
+    tags: gateway, routing, seguridad, jwt, microservicios
+    dependencies: Spring Cloud Gateway, WebFlux, Eureka, Spring Security, JWT, Prometheus
