@@ -63,9 +63,9 @@ info:
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
-    license: MIT
+    license: Proprietary
     contact:
-      email: ricardo@gmail.com
+      email: ricardo.terrazasramos@gmail.com
     tags: inteligencia artificial, IA generativa, automatización, procesamiento de datos
     dependencies: Spring Boot, Spring WebFlux, Spring AI (Ollama), Redis, Eureka, Prometheus
 
