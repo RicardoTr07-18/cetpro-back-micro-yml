@@ -68,5 +68,5 @@ info:
     contact:
       email: ricardo.terrazasramos@gmail.com
     tags: inteligencia artificial, IA generativa, automatización, procesamiento de datos
-    dependencies: Spring Boot, Spring WebFlux, Spring AI (Ollama), Redis, Eureka, Prometheus
+    dependencies: Spring Boot, Spring WebFlux, Spring AI (Ollama), Redis, Eureka, Actuator, Prometheus
 

@@ -81,8 +81,14 @@ logging:
 
 info:
   app:
-    name: Servicio de Finanzas (finance-service)
-    description: Servicio encargado de la gestión financiera, donde se manejan transacciones y reportes, ademas se conecta con el servicio de catalogo para obtener informacion de productos.
+    name: finance-service
+    title: Servicio de Finanzas
+    description: Gestión financiera del sistema. Maneja transacciones, reportes y se integra con el catálogo para obtener información de productos.
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
+    license: Proprietary
+    contact:
+      email: ricardo.terrazasramos@gmail.com
+    tags: finanzas, transacciones, reportes, integracion, cache
+    dependencies: Spring Boot, Spring MVC, Spring Data JPA, PostgreSQL, Spring Cache, Redis, Spring Cloud OpenFeign, Eureka, Resilience4j, AOP, Actuator, Prometheus

@@ -67,8 +67,14 @@ logging:
 
 info:
   app:
-    name: Servicio de Catálogo (catalog-service)
-    description: Expone los endpoints REST principales del sistema (alumnos, docentes, matrículas, módulos, etc.).
+    name: catalog-service
+    title: Servicio de Catálogo
+    description: Microservicio central del sistema. Expone los endpoints REST de alumnos, docentes, matrículas, módulos y genera reportes (PDF, Excel, Word).
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
+    license: Proprietary
+    contact:
+      email: ricardo.terrazasramos@gmail.com
+    tags: catalogo, alumnos, docentes, matriculas, reportes
+    dependencies: Spring Boot, Spring MVC, JPA, PostgreSQL, JasperReports, Apache POI, Eureka, Caffeine, Actuator, Prometheus
