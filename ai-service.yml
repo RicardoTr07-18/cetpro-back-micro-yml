@@ -58,7 +58,8 @@ logging:
 
 info:
   app:
-    name: Servicio de Inteligencia Artificial (ai-service)
+    name: ai-service
+    title: Servicio de Inteligencia Artificial
     description: "Servicio basado en inteligencia artificial para la automatización de tareas y procesamiento de datos."
     version: 1.0.0
     author: Ricardo Terrazas

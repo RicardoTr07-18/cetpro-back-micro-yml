@@ -71,8 +71,14 @@ logging:
 
 info:
   app:
-    name: Servicio de Autenticación (auth-service)
-    description: Gestiona roles, permisos, JWT, autenticación y seguridad del sistema.
+    name: auth-service
+    title: Servicio de Autenticación
+    description: Gestiona autenticación, autorización, roles, permisos y emisión/validación de JWT.
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
+    license: Proprietary
+    contact:
+      email: ricardo.terrazasramos@gmail.com
+    tags: autenticacion, seguridad, jwt, roles, permisos
+    dependencies: Spring Boot, Spring MVC, Spring Security, JPA, PostgreSQL, Eureka
