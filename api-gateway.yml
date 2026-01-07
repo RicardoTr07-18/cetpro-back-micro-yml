@@ -99,9 +99,7 @@ info:
   app:
     name: api-gateway
     title: Servicio API Gateway
-    description: >
-      "Puerta de enlace que enruta las solicitudes a los microservicios internos,
-      aplica seguridad (JWT), rate limiting y observabilidad."
+    description: "Puerta de enlace que enruta las solicitudes a los microservicios internos,aplica seguridad (JWT), rate limiting y observabilidad."
     version: 1.0.0
     author: Ricardo Terrazas
     environment: desarrollo
