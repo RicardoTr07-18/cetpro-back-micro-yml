@@ -48,7 +48,7 @@ spring:
                        /api/periods/**,
                        /api/seccion/**,
                        /api/cycles/**,
-                       /api/api/conditions/**,
+                       /api/conditions/**,
                        /api/specialty/**,
                        /api/student/**,
                        /api/teacher/**,
