@@ -47,7 +47,8 @@ eureka:
 
 jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
-  expiration-ms: 60000
+  access-expiration-ms: 600000       # 10 minutos
+  refresh-expiration-ms: 604800000   # 7 días
 
 server:
   port: 8083
