@@ -90,7 +90,6 @@ management:
 
 jwt:
   secret: 08725e547914eb52b7abba9bdfe7be4a2a5e6b8d9ca977d84a20816ff4f5023c
-  expiration-ms: 28800000
 
 logging:
   level:
